@@ -23,8 +23,6 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build TodoApp.csproj --no-restore
-      - name: Test
-        run: dotnet test TodoApp.Tests.csproj --no-build --verbosity normal
 
   test:
     runs-on: ubuntu-latest
