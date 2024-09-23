@@ -20,7 +20,7 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build TodoApp.csproj --no-restore
-    allow_failure: true
+    continue-on-error: true
 
   test:
     runs-on: ubuntu-latest
