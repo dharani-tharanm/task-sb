@@ -34,4 +34,4 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - name: Test
-        run: dotnet test TodoApp.Tests.csproj --no-build --verbosity normal
+        run: dotnet test TodoApp.Tests/TodoApp.Tests.csproj --no-build --verbosity normal
