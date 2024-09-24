@@ -20,13 +20,6 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build TodoApp.csproj --no-restore
-
-      - name: Send a Notification
-        id: notify
-        uses: thechetantalwar/teams-notify@v2
-        with:
-          teams_webhook_url: 'https://solo.requestcatcher.com/test'
-          message: "Github Action Build Number dont know."
         
     continue-on-error: true
 
@@ -44,6 +37,12 @@ jobs:
       - name: Test
         run: dotnet test TodoApp.Tests/TodoApp.Tests.csproj --no-build --verbosity normal
 
+      - name: Send a Notification
+        id: notify
+        uses: thechetantalwar/teams-notify@v2
+        with:
+          teams_webhook_url: 'https://solo.requestcatcher.com/test'
+          message: "Github Action Build Number dont know."
 
       - name: Notify Teams
         uses: thechetantalwar/teams-notify@v2
