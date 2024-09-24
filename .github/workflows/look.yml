@@ -3,6 +3,7 @@ name: .NET
 on:
   push:
     branches: [ "main" ]
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -15,7 +16,7 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - name: Test
-        #run: dotnet test TodoApp.Tests/TodoApp.Tests.csproj --no-build --verbosity normal
+        run: dotnet test TodoApp.Tests/TodoApp.Tests.csproj --no-build --verbosity normal
 
       - name: Send a Notification
         id: notify
@@ -29,7 +30,5 @@ jobs:
         with:
           # WebHook URL of your MS Teams Channel
           teams_webhook_url: 'https://prod-199.westeurope.logic.azure.com:443/workflows/9539a516954648158c307dc25e938a89/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=n--13NTV3EKuhMDgK5-8detaaGq_KrZsLMNx_ibkYPo'
-          #teams_webhook_url: 'https://prod-32.westeurope.logic.azure.com:443/workflows/7c315275e2ca43c1a516b520dc5740ef/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ATOvQUq8WxEl01HLP66vuXx6Tt2kfgYMTbVu4TaDqLs'
           # Message to be sent
-          #teams_webhook_url: 'https://bob.requestcatcher.com/test'
-          message: Hi ! How are you buddy
+          message: "Hi! How are you buddy?"
