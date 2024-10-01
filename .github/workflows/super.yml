@@ -16,7 +16,9 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - name: Test
-        run: dotnet test TodoApp.Tests/TodoApp.Tests.csproj --no-build --verbosity normal
+        run: |
+          dotnet test TodoApp.Tests/TodoApp.Tests.csproj --no-build --verbosity normal
+          echo "The Output of the content is : ${{ job.status }}"
         
       - name: Send a Notification
         id: notify
@@ -33,3 +35,4 @@ jobs:
           # Message to be sent
           teams_webhook_url: 'https://prod-06.westeurope.logic.azure.com:443/workflows/e6d4754a597744c8927160e4ecb9d957/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Cf-lIR_zs_aVo0BEDj-E4SQuoJU5NUuzw_uXYX6seEQ'
           message: "Hi! How are you buddy?"
+          
